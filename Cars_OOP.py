@@ -34,7 +34,11 @@ class CarManager:
                     elif line.startswith("Вид машины: "):
                         _, car['car_type'] = line.split(": ", 1)
                     elif line.startswith("Номер автомобиля: "):
-                        _, car['number'] = line.split(": ", 1)
+                        _, number = line.split(": ", 1)
+                        if len(number) == 8 and number[0].isalpha() and number[1:4].isdigit() and number[4:6].isalpha() and number[6:].isdigit():
+                            car['number'] = number
+                        else:
+                            print("Ошибка: Некорректный формат номера автомобиля")
                     elif line.startswith("Цвет автомобиля: "):
                         _, car['color'] = line.split(": ", 1)
                     elif line.startswith("Был ли автомобиль в ДТП: "):
