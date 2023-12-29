@@ -81,7 +81,7 @@ class CarManager:
 
     def get_car_type(self, choice):
         # Метод получения типа машины по выбору пользователя
-        car_types = ["Легковая", "Грузовая", "Мотоцикл"]
+        car_types = ["Легковая", "Грузовая", "Мотоцикл", "Бронетехника"]
         try:
             index = int(choice) - 1
             return car_types[index] if 0 <= index < len(car_types) else "Неопределен"
@@ -97,7 +97,8 @@ class CarManager:
         print("1. Легковая")
         print("2. Грузовая")
         print("3. Мотоцикл")
-        car_type_choice = input("Введите номер вида машины (1, 2 или 3): ")
+        print("4. Бронетехника")
+        car_type_choice = input("Введите номер вида машины (1, 2, 3 или 4): ")
 
         car_type = self.get_car_type(car_type_choice)
 
